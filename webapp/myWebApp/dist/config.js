@@ -1,1 +1,1 @@
-!function(n){"use strict";n.module("moneyMarketApp").constant("appConfig",{})}(angular);
+!function(n){"use strict";n.module("myApp").constant("appConfig",{})}(angular);
