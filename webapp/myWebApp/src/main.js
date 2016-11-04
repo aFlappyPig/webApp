@@ -5,3 +5,6 @@
  * 这个文件中的主控制器会包含$rootscope，所以事件的转发需要在这里配置
  * 还有一些需要全局配置的事项必须在这里实现，比如登录验证，定时刷新，websocket等
  ****/
+(function (angular) {
+    angular.module('myApp', []);
+})(angular);
