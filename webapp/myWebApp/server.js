@@ -8,7 +8,7 @@ var colors = require("colors"),
 
 // Web server
 var app = express();
-var port = process.env.port || 1337;
+var port = process.env.port || 1338;
 var router = express.Router();
 var regExp = '/\**/';
 
