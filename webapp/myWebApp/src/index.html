@@ -1,13 +1,139 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" ng-app="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" ng-app="myApp" ng-controller="htmlctr">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<title>myApp</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<style>
+		*{margin: 0;padding: 0;list-style: none;}
+		.wapers{width: 100%;margin-bottom: 0.2rem;}
+		.top-container {
+			display: flex;
+			flex-direction: row;
+			padding: 0.15rem;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border-bottom: 1px solid #e1e1e1;
+		}
+		.user-container {
+			display: flex;
+			flex-direction: column;
+		}
+		.card-avatar {
+			width: 0.4rem;
+			height: 0.4rem;
+			-webkit-border-radius:8px;
+			-moz-border-radius:8px;
+			border-radius:8px;
+			margin-right: 6px;
+		}
+		.card-time {
+			font-size: 14px;
+			color: #8999a5;
+			margin-top: 8px;
+		}
+		.card-name {
+			color: #ff9630;
+			font-weight: bold;
+			font-size: 100%;
+			margin-top: 5px;
+		}
+		.middle-container {
+			display: flex;
+			flex-direction: column;
+			padding: 0.15rem;
+			border-bottom: 1px solid #e1e1e1;
+		}
+		.message-text{
+			color: #333;
+			font-size: 100%;
+			line-height: 0.2rem;
+		}
+		.message-image {
+			width: 100%;
+			margin-top: 0.08rem;
+			background-color: #e1e1e1;
+		}
+		.bottom-container {
+			display: flex;
+			flex-direction: row;
+			height: 30px;
+			background-color: #fafafa;
+		}
+		.bottom-tool {
+			display: flex;
+			flex: 1;
+			justify-content: center;
+			align-items: center;
+		}
+		.bottom-tool-text {
+			color: #6D6D78;
+			font-size: 14px;
+		}
+	</style>
 </head>
 <body>
-	<h1 style="text-align:center;">Hello, myApp!</h1>
-	<h2 style="text-align:center;">这是我的第一个webApp</h2>
-	<h2 style="text-align:center;">这是一个标题</h2>
+	<div class="wapers">
+		<!--基于bootstrap的轮播效果-->
+		<div id="myCarousel" class="carousel slide">
+			<!-- 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
+			</ol>
+			<!-- 轮播（Carousel）项目 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="app/commons/img/banner1.png" alt="First slide" class="img-responsive"/>
+				</div>
+				<div class="item">
+					<img src="app/commons/img/banner3.jpg" alt="Second slide" class="img-responsive"/>
+				</div>
+				<div class="item">
+					<img src="app/commons/img/banner4.jpg" alt="Third slide" class="img-responsive"/>
+				</div>
+				<div class="item">
+					<img src="app/commons/img/banner5.jpg" alt="five slide" class="img-responsive"/>
+				</div>
+				<div class="item">
+					<img src="app/commons/img/banner6.jpg" alt="six slide" class="img-responsive"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ajaxwap" ng-repeat="item in newData">
+		<div class="top-container">
+			<image class="card-avatar" ng-src="{{item.avatar}}"></image>
+			<div class="user-container">
+				<span class="card-name">{{item.nickname}}</span>
+				<spant class="card-time">#{{item.id}} {{item.time}}</spant>
+			</div>
+		</div>
+		<div class="middle-container">
+			<span class="message-text">{{item.text}}</span>
+			<image class="message-image"
+				   data-original-pic="{{item.original_pic}}"
+				   ng-if="item.original_pic"
+				   ng-src="{{item.original_pic}}"
+			/>
+		</div>
+		<div class="bottom-container">
+			<span class="bottom-tool">
+				<span class="bottom-tool-text">Forward</span>
+			</span>
+			<span class="bottom-tool">
+				<span class="bottom-tool-text">Comment</span>
+			</span>
+			<span class="bottom-tool">
+				<span class="bottom-tool-text">Forward</span>
+			</span>
+		</div>
+	</div>
 </body>
 <!--lib-->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -19,5 +145,10 @@
 <script src="../bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
 <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/bootstrap/js/carousel.js"></script>
+<script src="main.js"></script>
+<script>
+	$('.carousel').carousel();
+</script>
 <!--lib-->
 </html>
