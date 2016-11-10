@@ -10,8 +10,13 @@
 
     angular.module('directives', []);
     angular.module('services', []);
-    angular.module('myWebApp', ['ui.router', 'ui.bootstrap', 'ngCookies', 'ngFileUpload', 'directives', 'services']);
+    var myApp = angular.module('myWebApp', ['ui.router', 'ui.bootstrap', 'ngCookies', 'ngFileUpload', 'directives', 'services']);
 
+    myApp.config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider.state('init', {
+
+        })
+    })
 
 
 })(angular);
