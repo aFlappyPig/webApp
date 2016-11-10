@@ -6,5 +6,12 @@
  * 还有一些需要全局配置的事项必须在这里实现，比如登录验证，定时刷新，websocket等
  ****/
 (function (angular) {
-    angular.module('myApp', []);
+    "use strict";
+
+    angular.module('directives', []);
+    angular.module('services', []);
+    angular.module('myWebApp', ['ui.router', 'ui.bootstrap', 'ngCookies', 'ngFileUpload', 'directives', 'services']);
+
+
+
 })(angular);

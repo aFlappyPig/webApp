@@ -1,0 +1,1 @@
+!function(e){"use strict";e.module("directives",[]),e.module("services",[]),e.module("myWebApp",["ui.router","ui.bootstrap","ngCookies","ngFileUpload","directives","services"])}(angular);
