@@ -9,6 +9,7 @@
 		*{margin: 0;padding: 0;list-style: none;}
 		.wapers{width: 100%;margin-bottom: 0.2rem;}
 		.top-container {
+			display: -webkit-flex; /* Safari */
 			display: flex;
 			flex-direction: row;
 			padding: 0.15rem;
@@ -22,12 +23,10 @@
 			flex-direction: column;
 		}
 		.card-avatar {
-			width: 0.4rem;
-			height: 0.4rem;
 			-webkit-border-radius:8px;
 			-moz-border-radius:8px;
 			border-radius:8px;
-			margin-right: 6px;
+			margin-right: 0.3rem;
 		}
 		.card-time {
 			font-size: 14px;
@@ -37,19 +36,22 @@
 		.card-name {
 			color: #ff9630;
 			font-weight: bold;
-			font-size: 100%;
-			margin-top: 5px;
+			font-size: 14px;
+			margin-top: 8px;
 		}
 		.middle-container {
 			display: flex;
 			flex-direction: column;
-			padding: 0.15rem;
+			padding: 0.25rem;
 			border-bottom: 1px solid #e1e1e1;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
 		}
 		.message-text{
 			color: #333;
-			font-size: 100%;
-			line-height: 0.2rem;
+			font-size: 14px;
+			line-height: 0.4rem;
 		}
 		.message-image {
 			width: 100%;
@@ -71,6 +73,7 @@
 		.bottom-tool-text {
 			color: #6D6D78;
 			font-size: 14px;
+			line-height: 0.4rem;
 		}
 	</style>
 </head>
@@ -108,10 +111,10 @@
 	</div>
 	<div class="ajaxwap" ng-repeat="item in newData">
 		<div class="top-container">
-			<image class="card-avatar" ng-src="{{item.avatar}}"></image>
+			<image class="card-avatar" ng-src="{{geturl(item.avatar)}}"></image>
 			<div class="user-container">
 				<span class="card-name">{{item.nickname}}</span>
-				<spant class="card-time">#{{item.id}} {{item.time}}</spant>
+				<span class="card-time">#{{item.id}} {{gettime(item.created_at)}}</span>
 			</div>
 		</div>
 		<div class="middle-container">
@@ -123,14 +126,8 @@
 			/>
 		</div>
 		<div class="bottom-container">
-			<span class="bottom-tool">
-				<span class="bottom-tool-text">Forward</span>
-			</span>
-			<span class="bottom-tool">
-				<span class="bottom-tool-text">Comment</span>
-			</span>
-			<span class="bottom-tool">
-				<span class="bottom-tool-text">Forward</span>
+			<span class="bottom-tool" ng-repeat="iems in names">
+				<span class="bottom-tool-text">{{iems.text}}</span>
 			</span>
 		</div>
 	</div>
@@ -147,6 +144,7 @@
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../bower_components/bootstrap/js/carousel.js"></script>
 <script src="main.js"></script>
+<script src="mobileauto.js"></script>
 <script>
 	$('.carousel').carousel();
 </script>
