@@ -6,5 +6,11 @@
  * 还有一些需要全局配置的事项必须在这里实现，比如登录验证，定时刷新，websocket等
  ****/
 (function (angular) {
-    angular.module('myApp', []);
+    var app = angular.module('myApp', []);
+    app.controller('htmlctr',function($scope,$http) {
+        var url = "https://raw.githubusercontent.com/BelinChung/HiApp/master/src/api/timeline.json?";
+        $http.get(url).success(function (response) {
+            $scope.newData = response.data;
+        });
+    })
 })(angular);
